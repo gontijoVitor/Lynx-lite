@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Music Player</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Music Player</h1>
+
+<section class="add-music">
+    <input id="title" placeholder="Music title">
+    <input id="url" placeholder="Music URL (mp3, ogg)">
+    <button id="addBtn">Add to Playlist</button>
+</section>
+
+<section class="playlist" id="playlist"></section>
+
+<section class="controls">
+    <button id="prev">◀</button>
+    <button id="play">▶</button>
+    <button id="next">▶▶</button>
+</section>
+
+<audio id="audio"></audio>
+
+<script src="script.js"></script>
+</body>
+</html>
