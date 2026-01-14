@@ -13,22 +13,22 @@ function Player() {
       <>
       <div className='border border-1 p-4'>
           <p>Wonderful Everyday Original Soundtrack</p>
-          <img className='m-2' alt='Album cover' src='../test-img.png' width="350px"></img>
+          <img className='m-2 img-thumbnail' alt='Album cover' src='../test-img.png' width="350px"></img>
           <h3>Yoru no Himawari</h3>
           <p>Matsumoto Fuminori</p>
           <div className='song-progress-bar d-inline'>
-            <p>00:25</p>
-              progress bar goes here
-            <p>02:45</p>
+            <div className='song-progress-bar'>{/* inline elements */}
+              <p className='my-2'>0:32 * progress bar goes here * 2:46</p>
+            </div>
           </div>
           
           <div className="d-inline">
-{/*             <button className='p-2 m-1 border rounded'><FontAwesomeIcon icon={faMinimize} /></button> */}
             <button className='p-2 m-1 border rounded'><FontAwesomeIcon icon={faShuffle} /></button>
             <button className='p-2 m-1 border rounded'><FontAwesomeIcon icon={faBackwardStep} /></button>
             <button className='p-2 m-1 border rounded'><FontAwesomeIcon icon={faPause} /></button>
             <button className='p-2 m-1 border rounded'><FontAwesomeIcon icon={faForwardStep} /></button>
             <button className='p-2 m-1 border rounded'><FontAwesomeIcon icon={faRepeat} /></button>
+            <button className='p-2 m-1 border rounded'><FontAwesomeIcon icon={faMinimize} /></button>
           </div>
         </div>
       </>
@@ -37,24 +37,25 @@ function Player() {
   else if(design == 2){/* make a full inline design */
     return (
       <>
-      <div className=''>
-          <p>Album name</p>
-          <img alt='Album cover' src='../test-img.png'></img>
-          <h3>Song name</h3>
-          <p>Artist</p>
-          <div className='song-progress-bar'>{/* inline elements */}
-            <p>Current time stamp</p>
-              progress bar goes here
-            <p>Full song time</p>
+        <div className='border border-solid-1 row p-2 py-3'>
+          <div className='col-2'>
+              <img className="img-thumbnail" alt='Album cover' src='../test-img.png'></img>
           </div>
-          
-          <div className="card">
-            <button>alt design</button>
-            <button>Shuffle</button>
-            <button>Previous</button>
-            <button>Pause</button>
-            <button>Next</button>
-            <button>Repeat</button>
+          <div className='col-6 my-2'>
+            <p className='m-0'>Subarashiki Hibi Official Soundtrack</p>
+            <h3 className='m-0'>Yoru no Himawari</h3>
+            <p className='m-0'>szak</p>
+          </div>
+          <div className="col-4 d-inline">
+            <div className='song-progress-bar'>{/* inline elements */}
+              <p className='my-2'>0:32 * progress bar goes here * 2:46</p>
+            </div>
+            <button className='p-2 m-1 border rounded'><FontAwesomeIcon icon={faShuffle} /></button>
+            <button className='p-2 m-1 border rounded'><FontAwesomeIcon icon={faBackwardStep} /></button>
+            <button className='p-2 m-1 border rounded'><FontAwesomeIcon icon={faPause} /></button>
+            <button className='p-2 m-1 border rounded'><FontAwesomeIcon icon={faForwardStep} /></button>
+            <button className='p-2 m-1 border rounded'><FontAwesomeIcon icon={faRepeat} /></button>
+            <button className='p-2 m-1 border rounded'><FontAwesomeIcon icon={faMinimize} /></button>
           </div>
         </div>
       </>
