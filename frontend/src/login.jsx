@@ -1,5 +1,3 @@
-import './login.css'
-
 function Login() {
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -7,40 +5,35 @@ function Login() {
   }
 
   return (
-    <div className="login-container">
-      <form className="login-card" onSubmit={handleSubmit}>
-        <h2 className="login-title">Sign In</h2>
-
-        <div className="form-group">
-          <label htmlFor="username">Username</label>
-          <input
-            id="username"
-            type="text"
-            placeholder="Enter your username"
-            required
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="password">Password</label>
-          <input
-            id="password"
-            type="password"
-            placeholder="Enter your password"
-            required
-          />
-        </div>
-
-        <button type="submit" className="login-button">
-          Sign In
-        </button>
-
-        <div className="login-links">
-          <a href="#">Forgot your password?</a>
-          <a href="#">Create a new account</a>
-        </div>
-      </form>
-    </div>
+    <>
+      <div className="border border-solid-1 p-3 w-75 mx-auto">
+        <form className="row m-3" onSubmit={handleSubmit}>
+          <h2>Sign In</h2>
+          <div className="form-group">
+            <input
+              className="form-control my-2"
+              id="username"
+              type="text"
+              placeholder="Username"
+              required
+            />
+            <input
+              className="form-control my-2"
+              id="password"
+              type="password"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <button type="submit" className="mx-auto my-1">
+            Sign In
+          </button>
+          <div className="my-1">
+            <a href="#">Forgot your password?</a> • <a href="#">Create a new account</a>
+          </div>
+        </form>
+      </div>
+    </>
   )
 }
 
