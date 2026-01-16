@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from 'react'
-import './App.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   faForwardStep,

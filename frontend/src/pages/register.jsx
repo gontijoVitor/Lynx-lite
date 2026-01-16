@@ -6,9 +6,9 @@ function Register() {
 
   return (
     <>
-      <div className="border border-solid-1 p-3 w-75 mx-auto">
+      <div className="border border-solid-1 p-3 col-11 col-md-8 col-lg-6 mx-auto">
         <form className="row m-3" onSubmit={handleSubmit}>
-          <h2>Create Account</h2>
+          <h2 className="text-center">Register</h2>
           <div className="form-group">
             <input
               className="form-control my-2"
@@ -45,10 +45,10 @@ function Register() {
               required
             />
           </div>
-          <button type="submit" className="mx-auto my-1">
+          <button type="submit" className="mx-auto my-1 bg-black text-white fw-bold rounded w-75 fs-5">
             Create Account
           </button>
-          <div className="my-1">
+          <div className="my-1 text-center">
             <a href="#">Already have an account? Sign in</a>
           </div>
         </form>
