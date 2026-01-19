@@ -1,34 +1,29 @@
 import { useState, useRef, useEffect } from 'react'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faForwardStep,
   faPlay,
   faPause,
   faBackwardStep,
   faRepeat,
-  faShuffle,
-  faMaximize,
-  faMinimize
-} from "@fortawesome/free-solid-svg-icons"
+  faShuffle
+} from '@fortawesome/free-solid-svg-icons'
 
 const MP3_URL =
   'https://nu.vgmtreasurechest.com/soundtracks/subarashiki-hibi-soundtrack-cd/mzlhaimm/1-02.%20Night%20Sunflowers.mp3'
 
 function Player() {
-  const [isCompact, setIsCompact] = useState(false)
+  const audioRef = useRef(null)
+
   const [isPlaying, setIsPlaying] = useState(false)
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
-
-  const audioRef = useRef(null)
+  const [volume, setVolume] = useState(1)
 
   const album = 'Wonderful Everyday Original Soundtrack'
   const title = 'Yoru no Himawari'
   const artist = 'Matsumoto Fuminori'
   const cover = '../test-img.png'
-
-  const toggleLayout = () => setIsCompact(p => !p)
-  const togglePlay = () => setIsPlaying(p => !p)
 
   /* =========================================================
      AUDIO CONTROL
@@ -39,6 +34,13 @@ function Player() {
     isPlaying ? audioRef.current.play() : audioRef.current.pause()
   }, [isPlaying])
 
+  useEffect(() => {
+    if (!audioRef.current) return
+    audioRef.current.volume = volume
+  }, [volume])
+
+  const togglePlay = () => setIsPlaying(p => !p)
+
   const formatTime = (time) => {
     if (!Number.isFinite(time)) return '0:00'
     const min = Math.floor(time / 60)
@@ -47,11 +49,11 @@ function Player() {
   }
 
   /* =========================================================
-     PROGRESS BAR (SHARED)
+     COMPONENTS
   ========================================================= */
 
   const ProgressBar = () => (
-    <div className="song-progress-bar">
+    <div className="mt-3">
       <input
         type="range"
         min="0"
@@ -63,7 +65,7 @@ function Player() {
           audioRef.current.currentTime = t
           setCurrentTime(t)
         }}
-        style={{ width: '100%' }}
+        className="form-range"
       />
       <div className="d-flex justify-content-between">
         <small>{formatTime(currentTime)}</small>
@@ -72,36 +74,45 @@ function Player() {
     </div>
   )
 
-  /* =========================================================
-     PLAYER CONTROLS (REUTILIZÁVEL)
-  ========================================================= */
-
-  const PlayerControls = () => (
-    <>
-      <button className='p-2 m-1 border rounded'>
+  const Controls = () => (
+    <div className="d-flex align-items-center">
+      <button className="btn btn-outline-secondary mx-1">
         <FontAwesomeIcon icon={faShuffle} />
       </button>
 
-      <button className='p-2 m-1 border rounded'>
+      <button className="btn btn-outline-secondary mx-1">
         <FontAwesomeIcon icon={faBackwardStep} />
       </button>
 
-      <button className='p-2 m-1 border rounded' onClick={togglePlay}>
+      <button
+        className="btn btn-outline-secondary mx-1"
+        onClick={togglePlay}
+      >
         <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} />
       </button>
 
-      <button className='p-2 m-1 border rounded'>
+      <button className="btn btn-outline-secondary mx-1">
         <FontAwesomeIcon icon={faForwardStep} />
       </button>
 
-      <button className='p-2 m-1 border rounded'>
+      <button className="btn btn-outline-secondary mx-1">
         <FontAwesomeIcon icon={faRepeat} />
       </button>
+    </div>
+  )
 
-      <button className='p-2 m-1 border rounded' onClick={toggleLayout}>
-        <FontAwesomeIcon icon={isCompact ? faMaximize : faMinimize} />
-      </button>
-    </>
+  const VolumeSlider = () => (
+    <div className="d-flex align-items-center ms-3" style={{ width: 120 }}>
+      <input
+        type="range"
+        min="0"
+        max="1"
+        step="0.01"
+        value={volume}
+        onChange={(e) => setVolume(Number(e.target.value))}
+        className="form-range"
+      />
+    </div>
   )
 
   /* =========================================================
@@ -109,59 +120,46 @@ function Player() {
   ========================================================= */
 
   return (
-    <div>
-      {/* AUDIO — MONTADO UMA ÚNICA VEZ */}
+    <>
       <audio
         ref={audioRef}
         src={MP3_URL}
         onLoadedMetadata={(e) => setDuration(e.target.duration || 0)}
-        onTimeUpdate={(e) => {
-          const t = e.target.currentTime
-          if (t <= duration) setCurrentTime(t)
-        }}
+        onTimeUpdate={(e) => setCurrentTime(e.target.currentTime)}
         onEnded={() => {
           setIsPlaying(false)
           setCurrentTime(duration)
         }}
       />
 
-      {/* LARGE PLAYER */}
-      {!isCompact && (
-        <div className='border border-1 p-4'>
-          <p>{album}</p>
+      <div
+        className="position-fixed bottom-0 start-0 w-100 border-top bg-light"
+        style={{ height: 160, padding: '50px 100px' }}
+      >
+        <div className="d-flex align-items-center h-100">
 
-          <img className='m-2 img-thumbnail' src={cover} width="350" />
+          <img
+            src={cover}
+            alt="cover"
+            className="img-thumbnail me-4"
+            style={{ width: 160 }}
+          />
 
-          <h3>{title}</h3>
-          <p>{artist}</p>
-
-          <ProgressBar />
-
-          <div>
-            <PlayerControls />
-          </div>
-        </div>
-      )}
-
-      {/* COMPACT PLAYER */}
-      {isCompact && (
-        <div className='border row p-2 align-items-center'>
-          <div className='col-2'>
-            <img className="img-thumbnail" src={cover} />
-          </div>
-
-          <div className='col-6'>
-            <p className='m-0'>{title}</p>
+          <div className="flex-grow-1 px-5">
+            <small className="text-muted">{album}</small>
+            <h5 className="mb-0">{title}</h5>
             <small>{artist}</small>
+
             <ProgressBar />
           </div>
 
-          <div className='col-4 text-end'>
-            <PlayerControls />
+          <div className="d-flex align-items-center ms-4">
+            <Controls />
+            <VolumeSlider />
           </div>
         </div>
-      )}
-    </div>
+      </div>
+    </>
   )
 }
 

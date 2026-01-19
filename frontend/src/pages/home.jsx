@@ -1,31 +1,102 @@
 function Home() {
   return (
-    <div className="border p-3 col-11 mx-auto">
+    <div className="container-fluid col-11 mx-auto mt-4">
 
-      {/* Linha principal */}
-      <div className="row">
+      {/* HEADER */}
+      <header className="mb-4">
+        <h2 className="fw-bold">Good afternoon</h2>
+        <p className="text-muted mb-0">
+          Continue listening where you left off
+        </p>
+      </header>
 
-        {/* Coluna esquerda */}
-        <div className="col-4">
-          <div className="border mb-3">
-            <h1>Playlists</h1>
-          </div>
+      {/* MAIN GRID */}
+      <div className="row g-4">
 
-          <div className="border">
-            <h1>Albuns</h1>
-          </div>
-        </div>
+        {/* LEFT COLUMN */}
+        <aside className="col-12 col-lg-4">
 
-        {/* Coluna direita */}
-        <div className="col-8 row">
-          <div className="border mb-3 col">
-            <h1>Last played songs</h1>
-          </div>
+          {/* PLAYLISTS */}
+          <section className="mb-4">
+            <h5 className="mb-3">Your playlists</h5>
 
-          <div className="border col">
-            <h1>Most played songs this month</h1>
-          </div>
-        </div>
+            <div className="list-group">
+              <div className="list-group-item">Focus Coding</div>
+              <div className="list-group-item">Japanese Study</div>
+              <div className="list-group-item">Late Night OSTs</div>
+              <div className="list-group-item">Workout Mix</div>
+            </div>
+          </section>
+
+          {/* ALBUMS */}
+          <section>
+            <h5 className="mb-3">Saved albums</h5>
+
+            <div className="row g-2">
+              <div className="col-6">
+                <div className="border rounded p-2 text-center">
+                  <div className="mb-2 bg-secondary rounded" style={{ height: 90 }} />
+                  <small>Subarashiki Hibi OST</small>
+                </div>
+              </div>
+
+              <div className="col-6">
+                <div className="border rounded p-2 text-center">
+                  <div className="mb-2 bg-secondary rounded" style={{ height: 90 }} />
+                  <small>Nier Automata</small>
+                </div>
+              </div>
+            </div>
+          </section>
+        </aside>
+
+        {/* RIGHT COLUMN */}
+        <main className="col-12 col-lg-8">
+
+          {/* LAST PLAYED */}
+          <section className="mb-4">
+            <h5 className="mb-3">Last played songs</h5>
+
+            <div className="list-group">
+              <div className="list-group-item d-flex justify-content-between">
+                <span>Yoru no Himawari</span>
+                <small className="text-muted">3:12</small>
+              </div>
+
+              <div className="list-group-item d-flex justify-content-between">
+                <span>City Ruins</span>
+                <small className="text-muted">4:20</small>
+              </div>
+
+              <div className="list-group-item d-flex justify-content-between">
+                <span>Weight of the World</span>
+                <small className="text-muted">5:38</small>
+              </div>
+            </div>
+          </section>
+
+          {/* MOST PLAYED */}
+          <section>
+            <h5 className="mb-3">Most played this month</h5>
+
+            <div className="row g-3">
+              <div className="col-md-6">
+                <div className="border rounded p-3">
+                  <h6 className="mb-1">Yoru no Himawari</h6>
+                  <small className="text-muted">42 plays</small>
+                </div>
+              </div>
+
+              <div className="col-md-6">
+                <div className="border rounded p-3">
+                  <h6 className="mb-1">City Ruins</h6>
+                  <small className="text-muted">37 plays</small>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </main>
 
       </div>
     </div>
