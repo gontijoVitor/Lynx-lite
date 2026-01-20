@@ -1,8 +1,8 @@
-function Add() {
+function Songs() {
     return (
         <>
         </>
     )
 }
 
-export default Add;
+export default Songs;

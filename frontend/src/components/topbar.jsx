@@ -15,16 +15,16 @@ function Topbar() {
 
           <ul className="navbar-nav d-none d-lg-flex">
             <li className="nav-item">
-              <a className="nav-link" href="#">Albums</a>
+              <a className="nav-link" href="albuns">Albuns</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Playlists</a>
+              <a className="nav-link" href="playlists">Playlists</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Songs</a>
+              <a className="nav-link" href="songs">Songs</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Add</a>
+              <a className="nav-link" href="add">Add</a>
             </li>
           </ul>
         </div>
@@ -72,8 +72,8 @@ function Topbar() {
                 Profile
               </a>
               <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
-                <li><a className="dropdown-item" href="#">Account</a></li>
-                <li><a className="dropdown-item" href="#">Settings</a></li>
+                <li><a className="dropdown-item" href="favorites">Favorite songs</a></li>
+                <li><a className="dropdown-item" href="settings">Settings</a></li>
                 <li><hr className="dropdown-divider" /></li>
                 <li><a className="dropdown-item" href="#">Logout</a></li>
               </ul>

@@ -1,8 +1,8 @@
-function Add() {
+function Search() {
     return (
         <>
         </>
     )
 }
 
-export default Add;
+export default Search;
