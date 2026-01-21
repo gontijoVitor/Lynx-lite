@@ -24,7 +24,7 @@ function Topbar() {
               <a className="nav-link" href="songs">Songs</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="add">Add</a>
+              <a className="nav-link" href="add_content">Add</a>
             </li>
           </ul>
         </div>

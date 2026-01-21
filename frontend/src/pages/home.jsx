@@ -21,10 +21,22 @@ function Home() {
             <h5 className="mb-3">Your playlists</h5>
 
             <div className="list-group">
-              <div className="list-group-item">Focus Coding</div>
-              <div className="list-group-item">Japanese Study</div>
-              <div className="list-group-item">Late Night OSTs</div>
-              <div className="list-group-item">Workout Mix</div>
+              <div className="list-group-item d-flex justify-content-between">
+                <span>Focus coding</span>
+                <small className="text-muted">43 songs</small>
+              </div>
+              <div className="list-group-item d-flex justify-content-between">
+                <span>Japanese Study</span>
+                <small className="text-muted">60 songs</small>
+              </div>
+              <div className="list-group-item d-flex justify-content-between">
+                <span>Late Night OSTs</span>
+                <small className="text-muted">32 songs</small>
+              </div>
+              <div className="list-group-item d-flex justify-content-between">
+                <span>Workout Mix</span>
+                <small className="text-muted">21 songs</small>
+              </div>
             </div>
           </section>
 
