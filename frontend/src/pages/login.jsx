@@ -6,7 +6,7 @@ function Login() {
 
   return (
     <>
-      <div className="border border-solid-1 p-3 col-11 col-md-8 col-lg-6 mx-auto">
+      <div className="border border-solid-1 p-3 col-11 col-md-8 col-lg-4 mx-auto">
         <form className="row m-3" onSubmit={handleSubmit}>
           <h2 className="text-center">Log In</h2>
           <div className="form-group">
@@ -29,7 +29,7 @@ function Login() {
             Enter
           </button>
           <div className="my-1 text-center">
-            <a href="#">Forgot your password?</a> • <a href="#">Create a new account</a>
+            <a href="#">Forgot your password?</a> • <a href="register">Create a new account</a>
           </div>
         </form>
       </div>

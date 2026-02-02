@@ -6,7 +6,7 @@ function Register() {
 
   return (
     <>
-      <div className="border border-solid-1 p-3 col-11 col-md-8 col-lg-6 mx-auto">
+      <div className="border border-solid-1 p-3 col-11 col-md-8 col-lg-4 mx-auto">
         <form className="row m-3" onSubmit={handleSubmit}>
           <h2 className="text-center">Register</h2>
           <div className="form-group">
@@ -49,7 +49,7 @@ function Register() {
             Create Account
           </button>
           <div className="my-1 text-center">
-            <a href="#">Already have an account? Sign in</a>
+            <a href="login">Already have an account? Sign in</a>
           </div>
         </form>
       </div>

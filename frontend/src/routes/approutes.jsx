@@ -8,6 +8,8 @@ import Playlists from '../pages/playlists.jsx'
 import Songs from '../pages/songs.jsx'
 import Albuns from '../pages/albuns.jsx'
 import Search from '../pages/search_results.jsx';
+import Favorites from '../pages/favorites.jsx'
+import Playlist from '../pages/playlist_view.jsx'
 
 export default function AppRoutes() {
   return (
@@ -19,6 +21,8 @@ export default function AppRoutes() {
       <Route path="/playlists" element={<Playlists />} />
       <Route path="/songs" element={<Songs />} />
       <Route path="/albuns" element={<Albuns />} />
+      <Route path="/favorites" element={<Favorites />} />
+      <Route path="/playlist_view" element={<Playlist />} />
       <Route path="/search_results" element={<Search />} />
     </Routes>
   )
