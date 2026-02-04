@@ -10,6 +10,7 @@ import Albuns from '../pages/albuns.jsx'
 import Search from '../pages/search_results.jsx';
 import Favorites from '../pages/favorites.jsx'
 import Playlist from '../pages/playlist_view.jsx'
+import Settings from '../pages/settings.jsx';
 
 export default function AppRoutes() {
   return (
@@ -24,6 +25,7 @@ export default function AppRoutes() {
       <Route path="/favorites" element={<Favorites />} />
       <Route path="/playlist_view" element={<Playlist />} />
       <Route path="/search_results" element={<Search />} />
+      <Route path="/settings" element={<Settings />} />
     </Routes>
   )
 }
